@@ -1,0 +1,9 @@
+# This file is meant to be included by the module CMakeLists.txt files.
+# Here we can define common dependencies.
+
+set(PROJECT_VERSION 1.0)
+
+if(NOT CMAKE_BUILD_TYPE)
+	message("## CMAKE_BUILD_TYPE not specified, defaulting to release.")
+	set(CMAKE_BUILD_TYPE "Release")
+endif()
