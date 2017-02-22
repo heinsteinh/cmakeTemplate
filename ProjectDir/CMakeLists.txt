@@ -11,6 +11,11 @@ set(${PROJECT_NAME}_VERSION "${${PROJECT_NAME}_MAJOR}.${${PROJECT_NAME}_MINOR}.$
 
 SET(CMAKE_LEGACY_CYGWIN_WIN32 1)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+  
+# Set GCC flags to some sensible defaults
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -O")
+  
   
 add_subdirectory(EventChannel-lib)
 add_subdirectory(EventChannel-bin)

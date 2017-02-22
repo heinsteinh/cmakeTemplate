@@ -4,16 +4,33 @@ cmake_minimum_required(VERSION 2.8.12)
 
 include(../cmake/CMakeInclude.txt)
 
+
+
+# Add all the header files to the HEADERS variable.
+#file(GLOB_RECURSE ${PROJECT_NAME}_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
+
+# Add all the source files to the SOURCES variable.
+#file(GLOB_RECURSE ${PROJECT_NAME}_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
 # Add all the source files to the SOURCES variable.
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 # Add all the header files to the HEADERS variable.
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
+file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
+
+
+
+
+# Make source hiearchy
+source_group("Header Files" FILES ${HEADERS})
+source_group("Source Files" FILES ${SOURCES})
+
 
 # Set the compiled file to the TARGET variable.
 set(TARGET "${PROJECT_NAME}_lib")
 
-add_library(${TARGET} SHARED ${SOURCES})
+#add_library(${TARGET} SHARED ${SOURCES})
+add_library(${TARGET} STATIC ${SOURCES} ${HEADERS})
 
 # Here we define the include paths that will be used by us and our clients:
 # BUILD_INTERFACE will be used when this library is consumed in source form.

@@ -1,4 +1,4 @@
-#include "FooBar.hpp"
+#include "FooBar.h"
 #include <stdio.h>
 
 int main(int argc, char* argv[]) {
